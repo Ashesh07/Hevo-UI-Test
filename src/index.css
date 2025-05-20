@@ -1,0 +1,175 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color:#1c1f24;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.layout{
+  max-width : 100%;
+  display:flex;
+  flex-direction: row;
+  padding : 60px 0px 80px;
+}
+h1{
+  line-height: 1.3;
+  font-weight : bold;
+}
+.columns{
+  flex: 1;
+  gap: 0px 24px;
+
+}
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.featured-image {
+  width : 496px;
+}
+
+p{
+  font-size: 16px;
+  line-height : 1.5;
+  font-weight : normal;
+}
+
+.progress-bar-card{
+  font-size: 1.25rem;
+  padding: 16px;
+  border-radius: 12px;
+  background: #f5f7fa;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 16px;
+  font-weight : 600;
+}
+.progress-bar-card:hover{
+  padding : 16px;
+  border-radius : 12px;
+  box-shadow: 0 2px 16px 0 rgba(3,4,5,0.04);
+  border : solid 1px #cbd2e0;
+  background: white;
+}
+.progress-bar-card.active {
+  border: solid 1px #cbd2e0;
+  background: white;
+  box-shadow: 0 2px 16px 0 rgba(3,4,5,0.04);
+}
+.progress-bar-card:hover svg,
+.progress-bar-card.active svg {
+  color: #5b2cc9;
+}
+
+.progress-bar-card span {
+  margin-left: 16px;
+}
+.icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  pointer-events: none;
+  border: none;
+}
+
+.circular-animation::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #5b2cc9;
+  animation: drawCircle 2s linear forwards;
+}
+
+@keyframes drawCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+  50% {
+    border-right-color: #5b2cc9;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+  75% {
+    border-right-color: #5b2cc9;
+    border-bottom-color: #5b2cc9;
+    border-left-color: transparent;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-color: #5b2cc9;
+  }
+}
+
+@keyframes circleRotation {
+  0% {
+    transform: rotate(0deg);
+    border-width: 2px 0 0 0;
+  }
+  25% {
+    border-width: 2px 0 0 2px;
+  }
+  50% {
+    border-width: 2px 0 2px 2px;
+  }
+  75% {
+    border-width: 2px 2px 2px 2px;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-width: 2px;
+    border-color: #5b2cc9;
+  }
+}
+
+
+@media only screen and (max-width: 530px){
+  .layout{
+  max-width : 100%;
+  display:flex;
+  flex-direction: column;
+  padding : 60px 0px 80px;
+}
+p{
+  margin-top : 20px;
+  margin-bottom : 32px;
+}
+.progress-bar-card{
+  font-size: 16px;
+  font-weight : normal;
+}
+.featured-image {
+  width : 100%;
+  max-width:100%;
+  margin-top : 2rem;
+}
+}
